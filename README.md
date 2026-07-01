@@ -8,7 +8,11 @@ GitHub Pages：
 
 `https://adcyazhou.github.io/-/index.html`
 
-当前 GitHub Pages 展示项目说明与真实模型验证结果，不保存或调用任何 DashScope API Key。模型交互版在本地项目中运行，待百炼应用公开发布后再接入体验链接。
+在线上传分析：
+
+`https://fragrances-agent-melbourne-coaches.trycloudflare.com`
+
+GitHub Pages 展示项目说明与真实模型验证结果，在线交互请求由 Cloudflare Quick Tunnel 转发至受控后端。API Key 仅存在于后端环境中，不会进入网页或仓库。该临时地址依赖本机服务和隧道进程持续运行，重启隧道后地址可能变化。
 
 ## 核心能力
 
