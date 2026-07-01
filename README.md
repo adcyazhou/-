@@ -8,11 +8,16 @@ GitHub Pages：
 
 `https://adcyazhou.github.io/-/index.html`
 
-在线上传分析：
+公开页面本身就是完整交互应用，不依赖本机 Python 服务或公网隧道。
 
-`https://fragrances-agent-melbourne-coaches.trycloudflare.com`
+## 使用方法
 
-GitHub Pages 展示项目说明与真实模型验证结果，在线交互请求由 Cloudflare Quick Tunnel 转发至受控后端。API Key 仅存在于后端环境中，不会进入网页或仓库。该临时地址依赖本机服务和隧道进程持续运行，重启隧道后地址可能变化。
+1. 打开公开页面，每次临时输入自己的百炼 API Key。
+2. 选择 1—2 份带文本层的 PDF 年报；单份不超过 60 MB，总计不超过 100 MB。
+3. 输入问题并开始分析。
+4. 根据结果中的文件名和 PDF 页码回到原报告复核。
+
+PDF.js 在浏览器本地解析原始文件，只有筛选出的证据页文本会被发送至百炼兼容接口。API Key 仅存在于当前页面内存和单次请求头中，不会写入 GitHub、浏览器持久化存储、Cookie 或 URL；刷新或关闭页面即可清除。
 
 ## 核心能力
 
