@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="年报鉴证台：基于 qwen3.7-plus 的企业年度报告结构化分析智能体">
+  <title>年报鉴证台｜Annual Report Verification Agent</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="返回首页">
+      <span class="brand-mark">鉴</span>
+      <span>
+        <small>ANNUAL REPORT VERIFICATION AGENT</small>
+        <strong>年报鉴证台</strong>
+      </span>
+    </a>
+    <a class="header-link" href="https://github.com/adcyazhou/-">GitHub 源码</a>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="kicker">证据优先 · 结构化提取 · 可复算</p>
+        <h1>把年报中的数字和治理变化，整理成能回到原页核验的结果。</h1>
+        <p class="lead">面向企业年度报告的专业智能体。系统先定位三大财务报表、管理层章节与审计意见，再由 qwen3.7-plus 完成字段归一、跨年比较和有限解释。</p>
+        <div class="actions">
+          <a class="primary-action" href="#evidence">查看在线演示</a>
+          <a class="secondary-action" href="#evidence">查看验证结果</a>
+        </div>
+        <p class="security-note">在线页面展示真实模型验证结果，不读取、不保存 API Key。</p>
+      </div>
+      <div class="hero-panel" aria-label="能力概览">
+        <div><span>01</span><strong>财务字段提取</strong></div>
+        <div><span>02</span><strong>管理层变动</strong></div>
+        <div><span>03</span><strong>勾稽与计算</strong></div>
+        <div><span>04</span><strong>PDF 证据页</strong></div>
+      </div>
+    </section>
+
+    <section class="section" id="architecture">
+      <div class="section-heading">
+        <p class="kicker">HOW IT WORKS</p>
+        <h2>LLM + 工具 + 知识库 + 工作流</h2>
+      </div>
+      <div class="architecture-grid">
+        <article><span>LLM</span><h3>Qwen3.7-plus</h3><p>理解问题、归一字段并组织结构化回答，不负责凭空补齐事实。</p></article>
+        <article><span>TOOLS</span><h3>PDF 与计算工具</h3><p>逐页解析文档，保存文件名、PDF 页码、原始字段和单位。</p></article>
+        <article><span>KNOWLEDGE</span><h3>年报规则库</h3><p>约束合并口径、单位换算、来源优先级、勾稽和人员变动分类。</p></article>
+        <article><span>WORKFLOW</span><h3>七阶段流程</h3><p>输入检查、任务分解、证据检索、抽取、校验、解释和风险收口。</p></article>
+      </div>
+    </section>
+
+    <section class="section evidence" id="evidence">
+      <div class="section-heading">
+        <p class="kicker">VERIFIED WITH OFFICIAL REPORTS</p>
+        <h2>比亚迪 2024—2025 年报真实验证</h2>
+        <p>固定样本共 659 页。以下金额单位均为人民币千元，结果可回到官方 PDF 对应页复核。</p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>指标</th><th>2024</th><th>2025</th><th>变动率</th><th>证据页</th></tr></thead>
+          <tbody>
+            <tr><td>营业收入</td><td>777,102,455</td><td>803,964,958</td><td class="up">+3.46%</td><td>P145 / P144</td></tr>
+            <tr><td>归母净利润</td><td>40,254,346</td><td>32,619,022</td><td class="down">-18.97%</td><td>P145 / P144</td></tr>
+            <tr><td>资产总计</td><td>783,355,855</td><td>883,729,883</td><td class="up">+12.81%</td><td>P142 / P141</td></tr>
+            <tr><td>负债合计</td><td>584,667,646</td><td>625,190,698</td><td class="up">+6.93%</td><td>P143 / P142</td></tr>
+            <tr><td>经营现金流净额</td><td>133,453,873</td><td>59,135,544</td><td class="down">-55.69%</td><td>P149 / P148</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="result-cards">
+        <article><strong>20 项自动化测试</strong><span>PDF、检索、API 与前端安全</span></article>
+        <article><strong>HTTP 200</strong><span>真实 qwen3.7-plus 调用</span></article>
+        <article><strong>12 个证据页</strong><span>跨年综合问题上下文</span></article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <p class="kicker">ITERATED, NOT ONE-SHOT</p>
+        <h2>真实 Bug 驱动的七次修复</h2>
+      </div>
+      <ol class="bug-list">
+        <li><strong>API 500：</strong>修复 urlopen 超时值被误作请求正文的问题。</li>
+        <li><strong>跨年失衡：</strong>增加简繁英主题映射和按报告平衡选择。</li>
+        <li><strong>来源混淆：</strong>让主报表优先于附注、五年摘要和目录。</li>
+        <li><strong>语义干扰：</strong>区分“股份增减变动”与真正的人员离任事件。</li>
+        <li><strong>原因遗漏：</strong>同时保留人员名单页和治理结构原因页。</li>
+        <li><strong>年份错路由：</strong>“2025 审计意见”只检索 2025 年报告。</li>
+        <li><strong>上下文浪费：</strong>单一主题命中后停止填充无关页面。</li>
+      </ol>
+    </section>
+
+    <section class="cta">
+      <div>
+        <p class="kicker">LIVE AGENT</p>
+        <h2>在线查看证据化年报分析</h2>
+        <p>当前公开演示提供固定年报样本与可复核结果。证据不足时，系统会明确说明未定位，而不是猜测。</p>
+      </div>
+      <a class="primary-action" href="#evidence">查看验证结果</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>课程研究项目 · 模型：qwen3.7-plus · 不构成审计意见或投资建议</p>
+    <p>© 2026 Annual Report Verification Agent</p>
+  </footer>
+</body>
+</html>
