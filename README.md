@@ -6,9 +6,9 @@
 
 GitHub Pages：
 
-`https://adcyazhou.github.io/-/`
+`https://adcyazhou.github.io/-/index.html`
 
-在线智能体由阿里云百炼托管。GitHub Pages 仅展示项目说明、验证结果与公开链接，不保存或调用任何 DashScope API Key。
+当前 GitHub Pages 展示项目说明与真实模型验证结果，不保存或调用任何 DashScope API Key。模型交互版在本地项目中运行，待百炼应用公开发布后再接入体验链接。
 
 ## 核心能力
 
