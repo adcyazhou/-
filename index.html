@@ -26,10 +26,10 @@
         <h1>把年报中的数字和治理变化，整理成能回到原页核验的结果。</h1>
         <p class="lead">面向企业年度报告的专业智能体。系统先定位三大财务报表、管理层章节与审计意见，再由 qwen3.7-plus 完成字段归一、跨年比较和有限解释。</p>
         <div class="actions">
-          <a class="primary-action" href="https://fragrances-agent-melbourne-coaches.trycloudflare.com" target="_blank" rel="noopener">打开在线智能体</a>
+          <a class="primary-action" href="#workspace">开始上传分析</a>
           <a class="secondary-action" href="#evidence">查看验证结果</a>
         </div>
-        <p class="security-note">模型调用由受控后端完成，浏览器端不读取、不保存 API Key。</p>
+        <p class="security-note">PDF 仅在浏览器本地解析；API Key 刷新页面即清除，不写入 GitHub。</p>
       </div>
       <div class="hero-panel" aria-label="能力概览">
         <div><span>01</span><strong>财务字段提取</strong></div>
@@ -37,6 +37,69 @@
         <div><span>03</span><strong>勾稽与计算</strong></div>
         <div><span>04</span><strong>PDF 证据页</strong></div>
       </div>
+    </section>
+
+    <section class="workspace" id="workspace">
+      <div class="workspace-heading">
+        <p class="kicker">BROWSER-ONLY AGENT</p>
+        <h2>上传年报，获得可回到原页复核的分析</h2>
+        <p>PDF 仅在当前浏览器解析；API Key 只存在于当前页面内存，刷新页面即清除。</p>
+      </div>
+
+      <div class="workspace-grid">
+        <form id="analysis-form" class="analysis-form" novalidate>
+          <label class="field" for="api-key">
+            <span>百炼 API Key</span>
+            <input id="api-key" type="password" autocomplete="off" spellcheck="false"
+                   placeholder="仅在当前页面使用，不会保存">
+          </label>
+
+          <label class="upload-zone" for="pdf-files">
+            <strong>选择 1—2 份 PDF 年报</strong>
+            <span>单份不超过 60 MB，总计不超过 100 MB</span>
+            <input id="pdf-files" type="file" accept="application/pdf,.pdf" multiple>
+          </label>
+          <div id="file-list" class="file-list" aria-live="polite">
+            <p>尚未选择文件</p>
+          </div>
+
+          <label class="field" for="question">
+            <span>分析问题</span>
+            <textarea id="question" rows="6">比较两份年报的营业收入、归母净利润、资产总计、负债合计和经营活动现金流量净额，计算变动率，并说明管理层或治理结构变动。所有结论给出 PDF 页码。</textarea>
+          </label>
+
+          <button id="analyze-button" class="primary-action analyze-button" type="submit">开始证据化分析</button>
+          <p id="form-message" class="form-message" role="alert"></p>
+        </form>
+
+        <aside class="process-panel">
+          <p class="process-label">处理流程</p>
+          <ol id="progress-steps" class="progress-steps" aria-label="分析进度">
+            <li data-step="parse"><span>01</span><strong>解析 PDF</strong><small>本地逐页读取文本层</small></li>
+            <li data-step="retrieve"><span>02</span><strong>筛选证据</strong><small>按年份、主题和报表层级排序</small></li>
+            <li data-step="model"><span>03</span><strong>调用模型</strong><small>只发送选中的证据页文本</small></li>
+          </ol>
+          <div class="privacy-card">
+            <strong>隐私边界</strong>
+            <p>原始 PDF 不上传服务器；页面不会把 Key 写入本地存储、Cookie、URL 或 GitHub 仓库。</p>
+          </div>
+        </aside>
+      </div>
+
+      <section id="result-panel" class="result-panel" hidden>
+        <div class="result-heading">
+          <div>
+            <p class="kicker">ANALYSIS RESULT</p>
+            <h3>分析结果</h3>
+          </div>
+          <span id="usage-badge">等待分析</span>
+        </div>
+        <pre id="answer"></pre>
+        <div>
+          <h4>证据页</h4>
+          <div id="evidence-list" class="evidence-list"></div>
+        </div>
+      </section>
     </section>
 
     <section class="section" id="architecture">
@@ -97,9 +160,9 @@
       <div>
         <p class="kicker">LIVE AGENT</p>
         <h2>在线上传年报并执行证据化分析</h2>
-        <p>支持上传 1—2 份 PDF 年报，也可使用内置验证样本。证据不足时，系统会明确说明未定位，而不是猜测。</p>
+        <p>支持上传 1—2 份带文本层的 PDF 年报。证据不足时，系统会明确说明未定位，而不是猜测。</p>
       </div>
-      <a class="primary-action" href="https://fragrances-agent-melbourne-coaches.trycloudflare.com" target="_blank" rel="noopener">打开年报鉴证台</a>
+      <a class="primary-action" href="#workspace">开始上传分析</a>
     </section>
   </main>
 
@@ -107,5 +170,6 @@
     <p>课程研究项目 · 模型：qwen3.7-plus · 不构成审计意见或投资建议</p>
     <p>© 2026 Annual Report Verification Agent</p>
   </footer>
+  <script type="module" src="app.js"></script>
 </body>
 </html>

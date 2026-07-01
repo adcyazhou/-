@@ -72,6 +72,102 @@ h3 { margin: 8px 0 10px; font-size: 1.08rem; }
 .hero-panel div { min-height: 118px; padding: 20px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .hero-panel span { display: block; color: var(--cyan); font-size: .75rem; font-weight: 900; }
 .hero-panel strong { display: block; margin-top: 22px; }
+.workspace {
+  padding: 44px;
+  margin: 12px 0 58px;
+  background: rgba(255, 255, 255, .94);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+}
+.workspace-heading { max-width: 760px; margin-bottom: 30px; }
+.workspace-heading > p:last-child { color: var(--muted); line-height: 1.7; }
+.workspace-grid { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(280px, .75fr); gap: 32px; align-items: start; }
+.analysis-form { display: grid; gap: 18px; }
+.field { display: grid; gap: 8px; }
+.field > span, .upload-zone strong { color: var(--ink); font-size: .9rem; font-weight: 800; }
+.field input, .field textarea {
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 14px;
+  color: var(--ink);
+  background: #fbfcfe;
+  border: 1px solid #cbd6e3;
+  border-radius: 11px;
+  font: inherit;
+  line-height: 1.6;
+  outline: none;
+  transition: border-color 140ms ease, box-shadow 140ms ease;
+}
+.field textarea { min-height: 146px; resize: vertical; }
+.field input:focus, .field textarea:focus, .upload-zone:focus-within {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(36, 87, 214, .13);
+}
+.upload-zone {
+  display: grid;
+  min-height: 126px;
+  place-content: center;
+  gap: 6px;
+  padding: 22px;
+  text-align: center;
+  background: #f6f9fe;
+  border: 1px dashed #9eb4d1;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: border-color 140ms ease, background 140ms ease;
+}
+.upload-zone:hover { background: #eef4ff; border-color: var(--blue); }
+.upload-zone span { color: var(--muted); font-size: .78rem; }
+.upload-zone input { width: 100%; min-height: 44px; margin-top: 8px; color: var(--muted); }
+.file-list { display: grid; gap: 8px; }
+.file-list p { margin: 0; color: var(--muted); font-size: .82rem; }
+.file-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 11px 13px;
+  background: #f7f9fc;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  font-size: .82rem;
+}
+.file-item span:last-child { color: var(--muted); white-space: nowrap; }
+.analyze-button { min-height: 50px; border: 0; cursor: pointer; font: inherit; }
+.analyze-button:disabled { cursor: wait; opacity: .62; transform: none; }
+.form-message { min-height: 1.4em; margin: -7px 0 0; color: var(--down); font-size: .83rem; line-height: 1.55; }
+.process-panel { padding: 22px; background: var(--ink); border-radius: 17px; }
+.process-label { color: #b7c6d9; font-size: .72rem; font-weight: 800; letter-spacing: .12em; }
+.progress-steps { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+.progress-steps li {
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  gap: 2px 10px;
+  padding: 14px;
+  color: #b7c6d9;
+  border: 1px solid rgba(255,255,255,.13);
+  border-radius: 12px;
+}
+.progress-steps li > span { grid-row: 1 / 3; color: #5ad0c8; font-size: .72rem; font-weight: 900; }
+.progress-steps li strong { color: white; font-size: .9rem; }
+.progress-steps li small { font-size: .72rem; }
+.progress-steps li.is-active { border-color: #5ad0c8; background: rgba(90, 208, 200, .1); }
+.progress-steps li.is-done { border-color: rgba(90, 208, 200, .42); }
+.progress-steps li.is-done > span::after { content: " ✓"; }
+.privacy-card { margin-top: 16px; padding: 15px; color: #cad5e4; background: rgba(255,255,255,.07); border-radius: 12px; }
+.privacy-card strong { color: white; font-size: .83rem; }
+.privacy-card p { margin: 6px 0 0; font-size: .74rem; line-height: 1.65; }
+.result-panel { margin-top: 30px; padding: 28px; background: #f7f9fc; border: 1px solid var(--line); border-radius: 17px; }
+.result-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.result-heading h3 { margin: 3px 0 0; font-size: 1.45rem; }
+#usage-badge { padding: 7px 10px; color: var(--blue); background: #e8efff; border-radius: 999px; font-size: .75rem; font-weight: 800; }
+#answer { margin: 24px 0; padding: 22px; white-space: pre-wrap; overflow-wrap: anywhere; color: var(--ink); background: white; border: 1px solid var(--line); border-radius: 13px; font: 0.94rem/1.85 "Microsoft YaHei", "PingFang SC", sans-serif; }
+.result-panel h4 { margin: 0 0 12px; }
+.evidence-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.evidence-card { padding: 15px; background: white; border: 1px solid var(--line); border-radius: 12px; }
+.evidence-card strong { display: block; overflow-wrap: anywhere; font-size: .84rem; }
+.evidence-card span { display: block; margin: 4px 0 8px; color: var(--blue); font-size: .74rem; font-weight: 800; }
+.evidence-card p { margin: 0; color: var(--muted); font-size: .76rem; line-height: 1.58; }
 .section { padding: 62px 0; border-top: 1px solid rgba(16,34,57,.09); }
 .section-heading { max-width: 780px; margin-bottom: 30px; }
 .architecture-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
@@ -108,6 +204,7 @@ tbody tr:last-child td { border-bottom: 0; }
 footer { display: flex; justify-content: space-between; gap: 24px; padding: 0 0 36px; color: var(--muted); font-size: .78rem; }
 @media (max-width: 900px) {
   .hero { grid-template-columns: 1fr; gap: 34px; padding-top: 48px; }
+  .workspace-grid { grid-template-columns: 1fr; }
   .architecture-grid { grid-template-columns: repeat(2, 1fr); }
   .cta { align-items: flex-start; flex-direction: column; }
 }
@@ -116,7 +213,10 @@ footer { display: flex; justify-content: space-between; gap: 24px; padding: 0 0 
   .site-header, footer { align-items: flex-start; flex-direction: column; }
   .header-link { margin-left: 57px; }
   h1 { font-size: 2.55rem; }
-  .architecture-grid, .result-cards, .bug-list { grid-template-columns: 1fr; }
+  .workspace { padding: 24px 18px; border-radius: 17px; }
+  .architecture-grid, .result-cards, .bug-list, .evidence-list { grid-template-columns: 1fr; }
+  .result-heading { align-items: flex-start; flex-direction: column; }
+  .result-panel { padding: 18px; }
   .section { padding: 46px 0; }
   .cta { padding: 28px; border-radius: 17px; }
 }
